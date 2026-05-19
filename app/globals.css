@@ -1,26 +1,170 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-green-deep: #1F5F2A;
+  --color-brand-green-mid: #2E8B3D;
+  --color-brand-lime: #9ED93A;
+  --color-brand-lime-soft: #C8E66B;
+  --color-ink: #0E1A14;
+  --color-ink-muted: #4A5A50;
+  --color-paper: #FFFFFF;
+  --color-paper-warm: #F6F7F2;
+
+  --font-display: var(--font-oswald), "Oswald", "Barlow Condensed", system-ui, sans-serif;
+  --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0E1A14;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+/* Focus rings */
+:focus-visible {
+  outline: 2px solid var(--color-brand-lime);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  z-index: 100;
+  background: var(--color-brand-green-deep);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.skip-link:focus {
+  left: 8px;
+}
+
+/* Keyframes */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(0.85); }
+}
+@keyframes drift {
+  0%   { transform: translate3d(0, 0, 0); }
+  50%  { transform: translate3d(0, -8px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+.animate-fadeUp { animation: fadeUp 0.7s ease-out both; }
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(158, 217, 58, 0.25), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2.4s linear infinite;
+}
+.animate-pulseDot { animation: pulseDot 2s ease-in-out infinite; }
+.animate-drift { animation: drift 6s ease-in-out infinite; }
+
+/* Diagonal divider */
+.chevron-divider {
+  position: relative;
+  height: 56px;
+  background: var(--color-brand-green-deep);
+  overflow: hidden;
+}
+.chevron-divider::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 50%, var(--color-brand-lime) 50%);
+  opacity: 0.9;
+}
+.chevron-divider::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 4px;
+  background: var(--color-brand-lime);
+}
+
+/* Card subtle border */
+.card-shell {
+  background: #fff;
+  border: 1px solid rgba(14, 26, 20, 0.08);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.card-shell:hover {
+  border-color: var(--color-brand-lime);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px -16px rgba(31, 95, 42, 0.35);
+}
+
+/* Lime underline accent for links */
+.link-accent {
+  position: relative;
+  display: inline-block;
+}
+.link-accent::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 100%; bottom: -3px;
+  height: 2px;
+  background: var(--color-brand-lime);
+  transition: right 0.35s ease;
+}
+.link-accent:hover::after { right: 0; }
+
+/* Gradient backgrounds */
+.bg-brand-gradient {
+  background: linear-gradient(135deg, #143E1B 0%, #1F5F2A 45%, #2E8B3D 100%);
+}
+.bg-lime-band {
+  background: linear-gradient(90deg, var(--color-brand-lime) 0%, var(--color-brand-lime-soft) 100%);
+}
+
+/* Section container */
+.container-x {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 768px) { .container-x { padding-inline: 2rem; } }
+
+/* Selection */
+::selection {
+  background: var(--color-brand-lime);
+  color: var(--color-ink);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
