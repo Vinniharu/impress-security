@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import HomeHero from "./components/HomeHero";
 import PillarCard from "./components/PillarCard";
 import ServiceCard from "./components/ServiceCard";
@@ -112,28 +113,60 @@ export default function Home() {
               </Link>
             </SectionReveal>
 
-            <SectionReveal stagger className="grid sm:grid-cols-2 gap-4">
-              {distinctions.map((d) => (
-                <RevealItem
-                  key={d}
-                  className="rounded-xl border border-black/5 bg-[color:var(--color-paper-warm)] p-5 flex items-start gap-3"
-                >
-                  <span className="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[color:var(--color-brand-green-deep)]">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9ED93A" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
-                  </span>
-                  <span className="text-sm leading-snug font-medium text-[color:var(--color-ink)]">{d}</span>
-                </RevealItem>
-              ))}
-            </SectionReveal>
+            <div className="space-y-6">
+              <SectionReveal>
+                <div className="relative aspect-[16/9] rounded-2xl overflow-hidden shadow-lg border border-black/5 bg-[color:var(--color-ink)]">
+                  <Image
+                    src="/staff/pic2.jpeg"
+                    alt="Impress Security Officers on duty in Lagos"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 550px"
+                    className="object-cover object-top"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between">
+                    <p className="text-xs uppercase tracking-widest text-white font-medium">
+                      Corporate &amp; Commercial Guarding · Lagos
+                    </p>
+                    <span className="px-2 py-0.5 rounded-full bg-[color:var(--color-brand-green-deep)]/80 text-[10px] uppercase tracking-wider text-[color:var(--color-brand-lime)] border border-[color:var(--color-brand-lime)]/30">
+                      On Site
+                    </span>
+                  </div>
+                </div>
+              </SectionReveal>
+
+              <SectionReveal stagger className="grid sm:grid-cols-2 gap-3">
+                {distinctions.map((d) => (
+                  <RevealItem
+                    key={d}
+                    className="rounded-xl border border-black/5 bg-[color:var(--color-paper-warm)] p-4 flex items-start gap-3"
+                  >
+                    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[color:var(--color-brand-green-deep)]">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#9ED93A" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
+                    </span>
+                    <span className="text-xs leading-snug font-medium text-[color:var(--color-ink)]">{d}</span>
+                  </RevealItem>
+                ))}
+              </SectionReveal>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Pull quote */}
+      {/* Pull quote with background staff atmosphere */}
       <section className="relative bg-brand-gradient text-white overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none opacity-20">
+          <Image
+            src="/staff/pic4.jpeg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover object-[center_35%] filter grayscale contrast-125"
+          />
+        </div>
         <div className="absolute inset-x-0 top-0 h-1 bg-lime-band" aria-hidden="true" />
         <div className="absolute inset-x-0 bottom-0 h-1 bg-lime-band" aria-hidden="true" />
-        <div className="container-x py-20 md:py-28">
+        <div className="container-x relative py-20 md:py-28">
           <SectionReveal className="max-w-3xl mx-auto text-center">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="#9ED93A" className="mx-auto opacity-70" aria-hidden="true">
               <path d="M7 7h4v4H8c0 2 1 3 3 3v3c-4 0-6-3-6-7zm9 0h4v4h-3c0 2 1 3 3 3v3c-4 0-6-3-6-7z"/>

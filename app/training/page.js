@@ -1,3 +1,4 @@
+import Image from "next/image";
 import PageHero from "../components/PageHero";
 import SectionReveal, { RevealItem } from "../components/SectionReveal";
 import CTABand from "../components/CTABand";
@@ -41,29 +42,29 @@ export default function TrainingPage() {
           </SectionReveal>
 
           <SectionReveal delay={0.1}>
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-brand-gradient">
-              <div className="absolute inset-0 opacity-25 pointer-events-none" aria-hidden="true"
-                   style={{
-                     backgroundImage:
-                       "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-                     backgroundSize: "40px 40px",
-                   }}
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-black/10 bg-[color:var(--color-ink)]">
+              <Image
+                src="/staff/pic4.jpeg"
+                alt="Impress Security staff on early morning parade"
+                fill
+                sizes="(max-width: 1024px) 100vw, 550px"
+                className="object-cover object-[center_35%]"
+                priority
               />
-              <div className="absolute inset-0 flex items-center justify-center p-12">
-                <div className="grid grid-cols-4 gap-4 w-full">
-                  {Array.from({ length: 12 }).map((_, i) => (
-                    <div key={i} className="aspect-square rounded-md bg-[color:var(--color-brand-lime)]/20 border border-[color:var(--color-brand-lime)]/40 flex items-end justify-center pb-2">
-                      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#9ED93A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                        <circle cx="12" cy="7" r="3" />
-                        <path d="M5 21c0-3 3-5 7-5s7 2 7 5" />
-                      </svg>
-                    </div>
-                  ))}
+              <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-ink)]/85 via-transparent to-black/20 pointer-events-none" />
+              <div className="absolute bottom-5 left-6 right-6 flex items-center justify-between">
+                <div>
+                  <p className="text-white font-[family-name:var(--font-display)] uppercase tracking-wider text-lg">
+                    Early Morning Parade &amp; Drills
+                  </p>
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-brand-lime)] font-semibold">
+                    Standardised Tactical Conditioning
+                  </p>
                 </div>
+                <span className="px-2.5 py-1 rounded-full bg-white/20 backdrop-blur text-[10px] uppercase tracking-widest text-white border border-white/30">
+                  Daily Regimen
+                </span>
               </div>
-              <p className="absolute bottom-4 left-6 text-white/90 font-[family-name:var(--font-display)] uppercase tracking-wider text-sm">
-                Early Morning Parade
-              </p>
             </div>
           </SectionReveal>
         </div>

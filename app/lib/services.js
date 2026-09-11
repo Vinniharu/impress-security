@@ -6,6 +6,7 @@ export const services = [
       "Well-trained, disciplined security personnel deployed across corporate, residential, industrial, and institutional sites.",
     lead:
       "Guards are trained in access control, observation, reporting, and client relations, ensuring professionalism at every point of contact.",
+    image: "/staff/pic1.jpeg",
     deployBullets: [
       "Corporate offices",
       "Residential estates",
@@ -19,6 +20,7 @@ export const services = [
   {
     slug: "executive-vip-protection",
     title: "Executive & VIP Protection",
+    image: "/staff/pic2.jpeg",
     summary:
       "Discreet, close-protection for executives, high-net-worth individuals, public figures, diplomats, and visiting dignitaries.",
     lead:
@@ -40,6 +42,7 @@ export const services = [
   {
     slug: "event-crowd-security",
     title: "Event & Crowd Security",
+    image: "/staff/pic3.jpeg",
     summary:
       "Security planning and execution for corporate events, conferences, cultural gatherings, and high-profile functions.",
     lead:
@@ -60,6 +63,7 @@ export const services = [
   {
     slug: "background-checks-vetting",
     title: "Background Checks & Vetting",
+    image: "/staff/pic6.jpeg",
     summary:
       "Discreet, thorough background investigations focused on credibility, integrity, and risk exposure.",
     lead:
@@ -74,6 +78,7 @@ export const services = [
   {
     slug: "private-investigation-surveillance",
     title: "Private Investigation & Surveillance",
+    image: "/staff/pic5.jpeg",
     summary:
       "Professional investigative services conducted within legal and ethical boundaries, reported clearly and professionally.",
     lead:
@@ -89,6 +94,7 @@ export const services = [
   {
     slug: "security-consultancy-risk-assessment",
     title: "Security Consultancy & Risk Assessment",
+    image: "/staff/pic4.jpeg",
     summary:
       "Practical, realistic advisory that helps clients identify vulnerabilities before they become incidents.",
     lead:

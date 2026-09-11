@@ -22,8 +22,7 @@ export const footerNav = {
     { label: "Background Checks", href: "/services/background-checks-vetting" },
     { label: "Risk Consultancy", href: "/services/security-consultancy-risk-assessment" },
   ],
-  Compliance: [
-    { label: "Compliance", href: "/compliance" },
+  Legal: [
     { label: "Privacy", href: "/legal/privacy" },
     { label: "Terms", href: "/legal/terms" },
     { label: "Confidentiality", href: "/legal/confidentiality" },

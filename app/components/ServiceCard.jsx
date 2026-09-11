@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 const serviceIcons = {
   "manned-guarding": (
@@ -55,29 +56,49 @@ export default function ServiceCard({ service, index = 0 }) {
       className="card-shell rounded-2xl overflow-hidden group flex flex-col"
     >
       <div className="relative aspect-[16/9] bg-brand-gradient overflow-hidden">
-        <div className="absolute inset-0 opacity-30" aria-hidden="true"
-             style={{
-               backgroundImage:
-                 "radial-gradient(circle at 30% 50%, rgba(158,217,58,0.5), transparent 60%), radial-gradient(circle at 80% 30%, rgba(255,255,255,0.2), transparent 60%)",
-             }} />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <motion.svg
-            initial={{ scale: 0.9 }}
-            whileHover={{ scale: 1.05 }}
-            width="64"
-            height="64"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#9ED93A"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            {serviceIcons[service.slug]}
-          </motion.svg>
-        </div>
-        <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/10 backdrop-blur text-[10px] uppercase tracking-[0.18em] text-white/90 border border-white/20">
+        {service.image ? (
+          <>
+            <Image
+              src={service.image}
+              alt={service.title}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover object-[center_30%] group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-ink)]/85 via-[color:var(--color-ink)]/25 to-black/20" />
+            <div className="absolute bottom-3 right-3 p-2 rounded-xl bg-black/40 backdrop-blur border border-white/15 text-[color:var(--color-brand-lime)]">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                {serviceIcons[service.slug]}
+              </svg>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="absolute inset-0 opacity-30" aria-hidden="true"
+                 style={{
+                   backgroundImage:
+                     "radial-gradient(circle at 30% 50%, rgba(158,217,58,0.5), transparent 60%), radial-gradient(circle at 80% 30%, rgba(255,255,255,0.2), transparent 60%)",
+                 }} />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <motion.svg
+                initial={{ scale: 0.9 }}
+                whileHover={{ scale: 1.05 }}
+                width="64"
+                height="64"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#9ED93A"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                {serviceIcons[service.slug]}
+              </motion.svg>
+            </div>
+          </>
+        )}
+        <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur text-[10px] uppercase tracking-[0.18em] text-white/90 border border-white/20">
           0{index + 1}
         </div>
       </div>

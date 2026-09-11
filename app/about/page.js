@@ -1,3 +1,4 @@
+import Image from "next/image";
 import PageHero from "../components/PageHero";
 import SectionReveal, { RevealItem } from "../components/SectionReveal";
 import CTABand from "../components/CTABand";
@@ -120,19 +121,50 @@ export default function AboutPage() {
             </div>
           </SectionReveal>
         </div>
+
+        <div className="container-x pb-20">
+          <SectionReveal>
+            <div className="relative aspect-[21/9] md:aspect-[3/1] w-full rounded-2xl overflow-hidden shadow-lg border border-black/5">
+              <Image
+                src="/staff/pic4.jpeg"
+                alt="Impress Security staff in formation"
+                fill
+                sizes="(max-width: 1200px) 100vw, 1200px"
+                className="object-cover object-[center_35%]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+              <div className="absolute bottom-4 left-6 right-6 flex items-center justify-between">
+                <p className="text-white text-xs md:text-sm font-medium tracking-wide uppercase">
+                  Disciplined Deployment &amp; Regulated Personnel
+                </p>
+                <span className="hidden sm:inline-block px-2.5 py-1 rounded-full bg-white/20 backdrop-blur text-[10px] uppercase tracking-widest text-white border border-white/30">
+                  Operations Squad
+                </span>
+              </div>
+            </div>
+          </SectionReveal>
+        </div>
       </section>
 
       {/* Leadership */}
       <section id="leadership" className="bg-[color:var(--color-ink)] text-white scroll-mt-32">
         <div className="container-x py-20 md:py-24 grid lg:grid-cols-[1fr_1.4fr] gap-12 items-center">
           <SectionReveal>
-            <div className="aspect-square w-full max-w-sm rounded-2xl bg-brand-gradient flex items-center justify-center p-10 relative overflow-hidden">
-              <div className="absolute inset-0 opacity-30" aria-hidden="true"
-                   style={{ backgroundImage: "radial-gradient(circle at 30% 30%, rgba(158,217,58,0.4), transparent 60%)" }} />
-              <svg viewBox="0 0 24 24" width="120" height="120" fill="none" stroke="#9ED93A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <circle cx="12" cy="8" r="4" />
-                <path d="M4 21c0-4 3.5-7 8-7s8 3 8 7" />
-              </svg>
+            <div className="relative aspect-[4/5] w-full max-w-sm mx-auto lg:mx-0 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[color:var(--color-brand-green-deep)]">
+              <Image
+                src="/staff/ceo.jpeg"
+                alt={siteMeta.chairman}
+                fill
+                sizes="(max-width: 768px) 100vw, 400px"
+                className="object-cover object-top"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-ink)]/70 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <span className="inline-block px-3 py-1 rounded-full bg-[color:var(--color-brand-green-deep)]/90 backdrop-blur text-[11px] uppercase tracking-[0.18em] font-semibold text-[color:var(--color-brand-lime)] border border-[color:var(--color-brand-lime)]/30">
+                  Board Chairman
+                </span>
+              </div>
             </div>
           </SectionReveal>
           <SectionReveal delay={0.1}>

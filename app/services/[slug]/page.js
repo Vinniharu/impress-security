@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import PageHero from "../../components/PageHero";
 import CTABand from "../../components/CTABand";
 import SectionReveal, { RevealItem } from "../../components/SectionReveal";
@@ -36,7 +37,7 @@ export default async function ServiceDetail({ params }) {
       />
 
       <section className="bg-white">
-        <div className="container-x py-20 md:py-24 grid lg:grid-cols-[1.2fr_1fr] gap-12">
+        <div className="container-x py-20 md:py-24 grid lg:grid-cols-[1.2fr_1fr] gap-12 items-start">
           <SectionReveal>
             <p className="text-[12px] uppercase tracking-[0.25em] text-[color:var(--color-brand-green-mid)] font-semibold">Overview</p>
             <h2 className="mt-3 font-[family-name:var(--font-display)] uppercase text-3xl md:text-4xl tracking-tight leading-[1.05]">
@@ -63,28 +64,54 @@ export default async function ServiceDetail({ params }) {
             )}
           </SectionReveal>
 
-          {service.deployBullets && (
-            <SectionReveal delay={0.1}>
-              <div className="rounded-2xl bg-[color:var(--color-paper-warm)] border border-black/5 p-7">
-                <p className="text-[11px] uppercase tracking-[0.2em] text-[color:var(--color-brand-green-mid)] font-semibold">Where we deploy</p>
-                <ul className="mt-4 grid gap-2.5">
-                  {service.deployBullets.map((b) => (
-                    <li key={b} className="flex items-center gap-3 text-[15px] text-[color:var(--color-ink)]">
-                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-[color:var(--color-brand-lime)]" />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/contact"
-                  className="mt-7 inline-flex items-center gap-2 rounded-full bg-[color:var(--color-brand-green-deep)] px-5 py-3 text-[12px] font-semibold uppercase tracking-wider text-white hover:bg-[color:var(--color-brand-green-mid)] transition"
-                >
-                  Discuss your deployment
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-                </Link>
-              </div>
-            </SectionReveal>
-          )}
+          <div className="space-y-8">
+            {service.image && (
+              <SectionReveal delay={0.05}>
+                <div className="relative aspect-[16/10] rounded-2xl overflow-hidden shadow-lg border border-black/10 bg-[color:var(--color-ink)]">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 500px"
+                    className="object-cover object-[center_30%]"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-ink)]/75 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between">
+                    <span className="text-white text-xs font-medium uppercase tracking-wider">
+                      {service.title} Deployment
+                    </span>
+                    <span className="px-2 py-0.5 rounded-full bg-[color:var(--color-brand-green-deep)] text-[10px] uppercase tracking-wider text-[color:var(--color-brand-lime)] border border-[color:var(--color-brand-lime)]/30">
+                      Active
+                    </span>
+                  </div>
+                </div>
+              </SectionReveal>
+            )}
+
+            {service.deployBullets && (
+              <SectionReveal delay={0.1}>
+                <div className="rounded-2xl bg-[color:var(--color-paper-warm)] border border-black/5 p-7">
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-[color:var(--color-brand-green-mid)] font-semibold">Where we deploy</p>
+                  <ul className="mt-4 grid gap-2.5">
+                    {service.deployBullets.map((b) => (
+                      <li key={b} className="flex items-center gap-3 text-[15px] text-[color:var(--color-ink)]">
+                        <span className="inline-block h-1.5 w-1.5 rounded-full bg-[color:var(--color-brand-lime)]" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href="/contact"
+                    className="mt-7 inline-flex items-center gap-2 rounded-full bg-[color:var(--color-brand-green-deep)] px-5 py-3 text-[12px] font-semibold uppercase tracking-wider text-white hover:bg-[color:var(--color-brand-green-mid)] transition"
+                  >
+                    Discuss your deployment
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                  </Link>
+                </div>
+              </SectionReveal>
+            )}
+          </div>
         </div>
       </section>
 

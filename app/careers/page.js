@@ -1,3 +1,4 @@
+import Image from "next/image";
 import PageHero from "../components/PageHero";
 import SectionReveal, { RevealItem } from "../components/SectionReveal";
 import CTABand from "../components/CTABand";
@@ -27,15 +28,49 @@ export default function CareersPage() {
       />
 
       <section className="bg-white">
-        <div className="container-x py-20 md:py-24">
-          <SectionReveal stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {values.map((v) => (
-              <RevealItem key={v.t} className="card-shell rounded-2xl p-6">
-                <p className="font-[family-name:var(--font-display)] uppercase text-xl text-[color:var(--color-brand-green-deep)]">{v.t}</p>
-                <p className="mt-2 text-sm text-[color:var(--color-ink-muted)] leading-relaxed">{v.b}</p>
-              </RevealItem>
-            ))}
+        <div className="container-x py-20 md:py-24 grid lg:grid-cols-[1fr_1.3fr] gap-12 items-center">
+          <SectionReveal>
+            <div className="relative aspect-[3/4] max-w-md mx-auto rounded-3xl overflow-hidden shadow-xl border border-black/10 bg-[color:var(--color-ink)]">
+              <Image
+                src="/staff/pic6.jpeg"
+                alt="Impress Security Officer in uniform"
+                fill
+                sizes="(max-width: 1024px) 100vw, 420px"
+                className="object-cover object-top"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-ink)]/80 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-5 left-5 right-5">
+                <span className="inline-block px-3 py-1 rounded-full bg-[color:var(--color-brand-green-deep)]/90 backdrop-blur text-[11px] uppercase tracking-[0.18em] font-semibold text-[color:var(--color-brand-lime)] border border-[color:var(--color-brand-lime)]/30">
+                  Disciplined · Vetted · Dignified
+                </span>
+                <p className="mt-2 text-white font-[family-name:var(--font-display)] uppercase text-lg tracking-wide">
+                  The Impress Standard
+                </p>
+              </div>
+            </div>
           </SectionReveal>
+
+          <div>
+            <SectionReveal>
+              <p className="text-[12px] uppercase tracking-[0.25em] text-[color:var(--color-brand-green-mid)] font-semibold">Our Culture</p>
+              <h2 className="mt-3 font-[family-name:var(--font-display)] uppercase text-3xl md:text-4xl tracking-tight leading-[1.05]">
+                Built on discipline, integrity, and mutual respect.
+              </h2>
+              <p className="mt-4 text-[color:var(--color-ink-muted)] leading-relaxed">
+                We take pride in our personnel. Every guard and operative is properly equipped, trained to international private security benchmarks, and treated with the professional dignity they deserve.
+              </p>
+            </SectionReveal>
+
+            <SectionReveal stagger className="mt-8 grid sm:grid-cols-2 gap-4">
+              {values.map((v) => (
+                <RevealItem key={v.t} className="card-shell rounded-2xl p-5">
+                  <p className="font-[family-name:var(--font-display)] uppercase text-lg text-[color:var(--color-brand-green-deep)]">{v.t}</p>
+                  <p className="mt-1.5 text-sm text-[color:var(--color-ink-muted)] leading-relaxed">{v.b}</p>
+                </RevealItem>
+              ))}
+            </SectionReveal>
+          </div>
         </div>
       </section>
 

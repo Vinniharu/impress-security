@@ -1,3 +1,4 @@
+import Image from "next/image";
 import PageHero from "../components/PageHero";
 import SectionReveal, { RevealItem } from "../components/SectionReveal";
 import CTABand from "../components/CTABand";
@@ -89,15 +90,26 @@ export default function WhyImpressPage() {
             </ul>
           </SectionReveal>
           <SectionReveal delay={0.1}>
-            <div className="relative rounded-3xl bg-brand-gradient p-10 md:p-12 overflow-hidden">
-              <div className="absolute inset-0 opacity-30" aria-hidden="true"
-                   style={{ backgroundImage: "radial-gradient(circle at 70% 30%, rgba(158,217,58,0.5), transparent 60%)" }} />
-              <svg width="44" height="44" viewBox="0 0 24 24" fill="#9ED93A" aria-hidden="true" className="opacity-80">
-                <path d="M7 7h4v4H8c0 2 1 3 3 3v3c-4 0-6-3-6-7zm9 0h4v4h-3c0 2 1 3 3 3v3c-4 0-6-3-6-7z"/>
-              </svg>
-              <p className="relative mt-6 font-[family-name:var(--font-display)] uppercase text-3xl md:text-4xl leading-[1.05]">
-                Your trust is our valuable asset.
-              </p>
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-[color:var(--color-ink)]">
+              <Image
+                src="/staff/pic2.jpeg"
+                alt="Impress Security Officers on assignment"
+                fill
+                sizes="(max-width: 1024px) 100vw, 550px"
+                className="object-cover object-top"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-brand-green-deep)]/90 via-[color:var(--color-ink)]/50 to-transparent pointer-events-none" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="#9ED93A" aria-hidden="true" className="opacity-90">
+                  <path d="M7 7h4v4H8c0 2 1 3 3 3v3c-4 0-6-3-6-7zm9 0h4v4h-3c0 2 1 3 3 3v3c-4 0-6-3-6-7z"/>
+                </svg>
+                <p className="mt-3 font-[family-name:var(--font-display)] uppercase text-2xl md:text-3xl text-white leading-tight">
+                  Your trust is our valuable asset.
+                </p>
+                <p className="mt-1 text-xs uppercase tracking-widest text-[color:var(--color-brand-lime)] font-semibold">
+                  Discreet · Ethical · Uncompromising
+                </p>
+              </div>
             </div>
           </SectionReveal>
         </div>
