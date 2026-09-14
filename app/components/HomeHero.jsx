@@ -27,12 +27,12 @@ export default function HomeHero() {
         aria-hidden="true"
       >
         <Image
-          src="/hero-officer-B6K7ITnA.jpg"
-          alt=""
+          src="/staff/pic4.jpeg"
+          alt="Impress Security staff in parade formation"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-[center_35%]"
         />
       </motion.div>
 
