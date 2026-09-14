@@ -14,9 +14,43 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const s = getService(slug);
   if (!s) return {};
+
+  const pageUrl = `https://impresssecurities.ng/services/${slug}`;
+
   return {
-    title: `${s.title} | Impress Security Services`,
-    description: s.summary,
+    title: `${s.title} | Impress Security Services Nigeria Limited`,
+    description: `${s.summary} ${s.lead}`,
+    keywords: [
+      s.title,
+      `${s.title} Lagos`,
+      `${s.title} Nigeria`,
+      "Impress Security Services",
+      "Licensed security services Lagos",
+      ...(s.deployBullets || []),
+    ],
+    alternates: {
+      canonical: pageUrl,
+    },
+    openGraph: {
+      title: `${s.title} | Impress Security Services`,
+      description: s.summary,
+      url: pageUrl,
+      type: "article",
+      images: [
+        {
+          url: s.image || "/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: `${s.title} - Impress Security Services`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${s.title} | Impress Security Services`,
+      description: s.summary,
+      images: [s.image || "/og-image.jpg"],
+    },
   };
 }
 
@@ -27,8 +61,32 @@ export default async function ServiceDetail({ params }) {
 
   const related = services.filter((s) => s.slug !== slug).slice(0, 3);
 
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: service.title,
+    name: `${service.title} - Impress Security Services`,
+    description: `${service.summary} ${service.lead}`,
+    provider: {
+      "@type": "SecurityService",
+      name: "Impress Security Services Nigeria Limited",
+      url: "https://impresssecurities.ng",
+      telephone: "0803 920 9495",
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Nigeria",
+    },
+    url: `https://impresssecurities.ng/services/${slug}`,
+    image: service.image ? `https://impresssecurities.ng${service.image}` : "https://impresssecurities.ng/og-image.jpg",
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       <PageHero
         breadcrumb={service.title}
         eyebrow="Service"

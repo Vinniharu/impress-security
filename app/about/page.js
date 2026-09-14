@@ -5,9 +5,66 @@ import CTABand from "../components/CTABand";
 import { siteMeta } from "../lib/siteMeta";
 
 export const metadata = {
-  title: "About | Impress Security Services Nigeria Limited",
+  title: "About Us & Leadership | Impress Security Services Nigeria Limited",
   description:
-    "Who we are, our philosophy, leadership, and company brief. A Category B licensed private guard company committed to protecting lives, assets, and reputations.",
+    "Learn about Impress Security Services Limited, our operational philosophy, and our Board Chairman, AIG Aderenle Shinaba (rtd), fdc, mni. Category B licensed in Lagos, Nigeria.",
+  keywords: [
+    "About Impress Security",
+    "AIG Aderenle Shinaba",
+    "Security company leadership Lagos",
+    "Private security company profile Nigeria",
+    "Licensed guard company Lagos",
+    "Security services management Nigeria",
+  ],
+  alternates: {
+    canonical: "https://impresssecurities.ng/about",
+  },
+  openGraph: {
+    title: "About Us & Leadership | Impress Security Services Nigeria Limited",
+    description:
+      "Learn about Impress Security Services Limited, our philosophy, and leadership chaired by retired Assistant Inspector General of Police AIG Aderenle Shinaba (rtd).",
+    url: "https://impresssecurities.ng/about",
+    type: "website",
+    images: [
+      {
+        url: "/staff/ceo.jpeg",
+        width: 800,
+        height: 1000,
+        alt: "AIG Aderenle Shinaba (rtd) - Board Chairman, Impress Security Services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Us & Leadership | Impress Security Services",
+    description: "Leadership, corporate philosophy, and licensed security operations in Lagos, Nigeria.",
+    images: ["/staff/ceo.jpeg"],
+  },
+};
+
+const aboutJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://impresssecurities.ng/about/#webpage",
+      url: "https://impresssecurities.ng/about",
+      name: "About Impress Security Services Nigeria Limited",
+      description: "Corporate brief, history, and leadership of Impress Security Services Limited.",
+    },
+    {
+      "@type": "Person",
+      "@id": "https://impresssecurities.ng/about/#chairman",
+      name: siteMeta.chairman,
+      jobTitle: "Board Chairman",
+      worksFor: {
+        "@type": "Organization",
+        name: siteMeta.legalName,
+      },
+      description: siteMeta.chairmanRole,
+      image: "https://impresssecurities.ng/staff/ceo.jpeg",
+    },
+  ],
 };
 
 const focusAreas = [
@@ -20,6 +77,10 @@ const focusAreas = [
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }}
+      />
       <PageHero
         breadcrumb="About"
         eyebrow="About Impress"

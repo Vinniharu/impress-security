@@ -4,9 +4,40 @@ import SectionReveal, { RevealItem } from "../components/SectionReveal";
 import CTABand from "../components/CTABand";
 
 export const metadata = {
-  title: "Why Impress | Our Distinction, Ethics & Commitment",
+  title: "Why Choose Us | Ethics, Confidentiality & Professional Distinction",
   description:
-    "Our distinction, ethics & confidentiality, and commitment — calm, intelligent, non-intrusive security delivered to a single high standard.",
+    "Discover what sets Impress Security Services apart: disciplined personnel, intelligence-driven operations, calm non-intrusive presence, and uncompromising confidentiality in Nigeria.",
+  keywords: [
+    "Why choose Impress Security",
+    "Professional security standards Nigeria",
+    "Ethical security companies Lagos",
+    "Discreet security guarding Nigeria",
+    "Reliable private guard firm Lagos",
+  ],
+  alternates: {
+    canonical: "https://impresssecurities.ng/why-impress",
+  },
+  openGraph: {
+    title: "Why Impress Security | Our Distinction, Ethics & Commitment",
+    description:
+      "We compete on professionalism, ethics, and outcome — not on uniform visibility or aggressive posture. Calm, intelligent, non-intrusive security.",
+    url: "https://impresssecurities.ng/why-impress",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Why Choose Impress Security Services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Why Impress Security Services",
+    description: "The discreet, intelligence-driven security alternative in Nigeria.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 const distinction = [

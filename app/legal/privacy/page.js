@@ -3,8 +3,11 @@ import SectionReveal from "../../components/SectionReveal";
 import { siteMeta } from "../../lib/siteMeta";
 
 export const metadata = {
-  title: "Privacy Policy | Impress Security Services",
-  description: "How Impress Security Services collects, uses, and retains enquiry data.",
+  title: "Privacy Policy",
+  description: "How Impress Security Services Nigeria Limited collects, uses, protects, and retains client and visitor enquiry data.",
+  alternates: {
+    canonical: "https://impresssecurities.ng/legal/privacy",
+  },
 };
 
 export default function PrivacyPage() {

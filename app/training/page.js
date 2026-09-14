@@ -4,9 +4,41 @@ import SectionReveal, { RevealItem } from "../components/SectionReveal";
 import CTABand from "../components/CTABand";
 
 export const metadata = {
-  title: "Training | Impress Security Services Nigeria Limited",
+  title: "Security Training & Tactical Drills",
   description:
-    "Early morning parades, structured drills, and continuous physical and tactical conditioning before any deployment.",
+    "Rigorous security guard training in Nigeria. Daily parades, physical conditioning, emergency response, and tactical drills that prepare Impress Security personnel for high-stakes deployment.",
+  alternates: {
+    canonical: "https://impresssecurities.ng/training",
+  },
+  keywords: [
+    "security guard training Nigeria",
+    "tactical drills security guards Lagos",
+    "private security guard conditioning",
+    "parade training security personnel Nigeria",
+    "certified guard academy Lagos",
+    "emergency response training security guards",
+  ],
+  openGraph: {
+    title: "Security Training Academy | Impress Security Services",
+    description:
+      "Physical and tactical conditioning, structured drills, and situational awareness training for corporate and industrial security guards in Nigeria.",
+    url: "https://impresssecurities.ng/training",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Impress Security Guard Training Drills",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Security Training & Tactical Drills | Impress Security",
+    description: "Daily parades and tactical drills conditioning elite security guards in Nigeria.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 const pillars = [

@@ -3,8 +3,11 @@ import SectionReveal from "../../components/SectionReveal";
 import { siteMeta } from "../../lib/siteMeta";
 
 export const metadata = {
-  title: "Confidentiality Statement | Impress Security Services",
-  description: "Our binding commitment to client confidentiality.",
+  title: "Client Confidentiality Statement",
+  description: "Our binding commitment to client discretion, data privacy, and non-disclosure across all security operations and enquiries.",
+  alternates: {
+    canonical: "https://impresssecurities.ng/legal/confidentiality",
+  },
 };
 
 export default function ConfidentialityPage() {

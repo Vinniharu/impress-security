@@ -5,9 +5,42 @@ import CTABand from "../components/CTABand";
 import { siteMeta } from "../lib/siteMeta";
 
 export const metadata = {
-  title: "Careers | Impress Security Services Nigeria Limited",
+  title: "Security Guard Careers & Recruitment in Lagos",
   description:
-    "Join a security company that competes on discipline, ethics, and judgment. Vetted personnel, structured training, dignified work.",
+    "Join Impress Security Services Nigeria Limited. We recruit and train disciplined, vetted security operatives, patrol supervisors, and control room dispatchers in Lagos and nationwide.",
+  alternates: {
+    canonical: "https://impresssecurities.ng/careers",
+  },
+  keywords: [
+    "security guard jobs Lagos",
+    "private security recruitment Nigeria",
+    "security officer careers Lagos",
+    "hire security guards Nigeria",
+    "security operative vacancy Lagos",
+    "Impress Security careers",
+    "security supervisor jobs Ojodu Berger",
+  ],
+  openGraph: {
+    title: "Security Careers & Officer Recruitment | Impress Security",
+    description:
+      "Build a disciplined, respected career in corporate, industrial, and residential protection across Lagos and Nigeria.",
+    url: "https://impresssecurities.ng/careers",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Careers at Impress Security Services Nigeria",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Security Careers & Recruitment | Impress Security",
+    description: "Join Nigeria's leading private security firm. Disciplined, vetted personnel.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 const values = [

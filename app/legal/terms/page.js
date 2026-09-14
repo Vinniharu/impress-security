@@ -3,8 +3,11 @@ import SectionReveal from "../../components/SectionReveal";
 import { siteMeta } from "../../lib/siteMeta";
 
 export const metadata = {
-  title: "Terms of Service | Impress Security Services",
-  description: "Terms governing the use of this website.",
+  title: "Terms of Service",
+  description: "Terms and conditions governing the use of the Impress Security Services Nigeria Limited website.",
+  alternates: {
+    canonical: "https://impresssecurities.ng/legal/terms",
+  },
 };
 
 export default function TermsPage() {

@@ -4,14 +4,72 @@ import ContactForm from "../components/ContactForm";
 import { siteMeta } from "../lib/siteMeta";
 
 export const metadata = {
-  title: "Contact | Impress Security Services Nigeria Limited",
+  title: "Contact Us & Confidential Consultation | Impress Security Services",
   description:
-    "Reach Impress Security Services in confidence. Office in Ojudu Berger, Lagos. Every enquiry is handled under strict non-disclosure.",
+    "Contact Impress Security Services Nigeria Limited in confidence. Head office in Ojodu Berger, Lagos. Direct phone lines, email, and confidential deployment inquiries.",
+  keywords: [
+    "Contact Impress Security",
+    "Security company Lagos contact",
+    "Hire security guards Lagos",
+    "Security company Ojodu Berger",
+    "Private security quote Nigeria",
+    "Impress Security phone number",
+  ],
+  alternates: {
+    canonical: "https://impresssecurities.ng/contact",
+  },
+  openGraph: {
+    title: "Contact Us & Confidential Consultation | Impress Security Services",
+    description:
+      "Start a confidential security conversation. Head office in Ojodu Berger, Lagos. Every enquiry is handled under strict non-disclosure.",
+    url: "https://impresssecurities.ng/contact",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Contact Impress Security Services Nigeria Limited",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Impress Security Services",
+    description: "Request a confidential security assessment or manned guarding deployment in Lagos, Nigeria.",
+    images: ["/og-image.jpg"],
+  },
+};
+
+const contactJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": "https://impresssecurities.ng/contact/#webpage",
+  url: "https://impresssecurities.ng/contact",
+  name: "Contact Impress Security Services Nigeria Limited",
+  description: "Confidential security consultations, office directions, and direct telephone lines in Lagos, Nigeria.",
+  mainEntity: {
+    "@type": "SecurityService",
+    name: siteMeta.legalName,
+    telephone: siteMeta.phones,
+    email: siteMeta.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: `${siteMeta.address.line1}, ${siteMeta.address.line2}`,
+      addressLocality: siteMeta.address.city,
+      addressRegion: "Lagos State",
+      addressCountry: "NG",
+    },
+  },
 };
 
 export default function ContactPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
+      />
       <PageHero
         breadcrumb="Contact"
         eyebrow="Confidential Consultation"
