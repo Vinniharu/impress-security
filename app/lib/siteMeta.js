@@ -11,7 +11,11 @@ export const siteMeta = {
   incorporated: "27th July 2021",
   shareCapital: "10,000,000",
   chairman: "AIG Aderenle Shinaba (rtd), fdc, mni",
+  chairmanTitle: "Board Chairman",
   chairmanRole: "Retired Assistant Inspector General of Police",
+  ceo: "Mr. Charles Fasuba",
+  ceoTitle: "Chief Executive Officer / Managing Director",
+  ceoRole: "CEO / Managing Director",
   licensingAuthority: "Hon. Dr. Olubunmi Tunji-Ojo, Minister/Licensing Authority",
   address: {
     line1: "Suite 19, Comfort Oladunni Shopping Complex",

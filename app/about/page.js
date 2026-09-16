@@ -5,12 +5,16 @@ import CTABand from "../components/CTABand";
 import { siteMeta } from "../lib/siteMeta";
 
 export const metadata = {
-  title: "About Us & Leadership | Impress Security Services Nigeria Limited",
+  title: "About Us & Executive Leadership | Impress Security Services Nigeria Limited",
   description:
-    "Learn about Impress Security Services Limited, our operational philosophy, and our Board Chairman, AIG Aderenle Shinaba (rtd), fdc, mni. Category B licensed in Lagos, Nigeria.",
+    "Learn about Impress Security Services Limited, our operational philosophy, our Board Chairman AIG Aderenle Shinaba (rtd), fdc, mni, and our CEO/MD Mr. Charles Fasuba. Category B licensed in Lagos, Nigeria.",
   keywords: [
     "About Impress Security",
     "AIG Aderenle Shinaba",
+    "Mr Charles Fasuba",
+    "Charles Fasuba CEO",
+    "Security company CEO Lagos",
+    "Board Chairman Impress Security",
     "Security company leadership Lagos",
     "Private security company profile Nigeria",
     "Licensed guard company Lagos",
@@ -20,24 +24,24 @@ export const metadata = {
     canonical: "https://impresssecurities.ng/about",
   },
   openGraph: {
-    title: "About Us & Leadership | Impress Security Services Nigeria Limited",
+    title: "About Us & Executive Leadership | Impress Security Services Nigeria Limited",
     description:
-      "Learn about Impress Security Services Limited, our philosophy, and leadership chaired by retired Assistant Inspector General of Police AIG Aderenle Shinaba (rtd).",
+      "Corporate governance chaired by retired Assistant Inspector General of Police AIG Aderenle Shinaba (rtd) and executive direction by CEO/MD Mr. Charles Fasuba.",
     url: "https://impresssecurities.ng/about",
     type: "website",
     images: [
       {
         url: "/staff/ceo.jpeg",
-        width: 800,
+        width: 750,
         height: 1000,
-        alt: "AIG Aderenle Shinaba (rtd) - Board Chairman, Impress Security Services",
+        alt: "Mr. Charles Fasuba - CEO/MD, Impress Security Services",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Us & Leadership | Impress Security Services",
-    description: "Leadership, corporate philosophy, and licensed security operations in Lagos, Nigeria.",
+    title: "About Us & Executive Leadership | Impress Security Services",
+    description: "Executive leadership, governance, and licensed security operations in Lagos, Nigeria.",
     images: ["/staff/ceo.jpeg"],
   },
 };
@@ -50,7 +54,7 @@ const aboutJsonLd = {
       "@id": "https://impresssecurities.ng/about/#webpage",
       url: "https://impresssecurities.ng/about",
       name: "About Impress Security Services Nigeria Limited",
-      description: "Corporate brief, history, and leadership of Impress Security Services Limited.",
+      description: "Corporate brief, history, and executive leadership of Impress Security Services Limited.",
     },
     {
       "@type": "Person",
@@ -61,7 +65,19 @@ const aboutJsonLd = {
         "@type": "Organization",
         name: siteMeta.legalName,
       },
-      description: siteMeta.chairmanRole,
+      description: "Retired Assistant Inspector General of Police (AIG). Chairman of the Board of Impress Security Services Nigeria Limited.",
+      image: "https://impresssecurities.ng/staff/chairman-placeholder.jpg",
+    },
+    {
+      "@type": "Person",
+      "@id": "https://impresssecurities.ng/about/#ceo",
+      name: siteMeta.ceo,
+      jobTitle: siteMeta.ceoTitle,
+      worksFor: {
+        "@type": "Organization",
+        name: siteMeta.legalName,
+      },
+      description: "Chief Executive Officer / Managing Director of Impress Security Services Nigeria Limited.",
       image: "https://impresssecurities.ng/staff/ceo.jpeg",
     },
   ],
@@ -209,35 +225,130 @@ export default function AboutPage() {
 
       {/* Leadership */}
       <section id="leadership" className="bg-[color:var(--color-ink)] text-white scroll-mt-32">
-        <div className="container-x py-20 md:py-24 grid lg:grid-cols-[1fr_1.4fr] gap-12 items-center">
-          <SectionReveal>
-            <div className="relative aspect-[4/5] w-full max-w-sm mx-auto lg:mx-0 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[color:var(--color-brand-green-deep)]">
-              <Image
-                src="/staff/ceo.jpeg"
-                alt={siteMeta.chairman}
-                fill
-                sizes="(max-width: 768px) 100vw, 400px"
-                className="object-cover object-top"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-ink)]/70 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <span className="inline-block px-3 py-1 rounded-full bg-[color:var(--color-brand-green-deep)]/90 backdrop-blur text-[11px] uppercase tracking-[0.18em] font-semibold text-[color:var(--color-brand-lime)] border border-[color:var(--color-brand-lime)]/30">
-                  Board Chairman
-                </span>
-              </div>
-            </div>
-          </SectionReveal>
-          <SectionReveal delay={0.1}>
-            <p className="text-[12px] uppercase tracking-[0.25em] text-[color:var(--color-brand-lime)] font-semibold">Board Chairman</p>
+        <div className="container-x pt-20 md:pt-24 pb-10">
+          <SectionReveal className="max-w-3xl">
+            <p className="text-[12px] uppercase tracking-[0.25em] text-[color:var(--color-brand-lime)] font-semibold">
+              Executive Leadership &amp; Governance
+            </p>
             <h2 className="mt-3 font-[family-name:var(--font-display)] uppercase text-3xl md:text-5xl tracking-tight leading-[1.05]">
-              {siteMeta.chairman}
+              Guiding discipline. Driving operational rigor.
             </h2>
-            <p className="mt-4 text-[color:var(--color-brand-lime)] text-sm uppercase tracking-[0.18em] font-semibold">{siteMeta.chairmanRole}</p>
-            <p className="mt-5 text-white/80 leading-relaxed max-w-xl">
-              The chairmanship anchors the company's commitment to discipline, lawful conduct, and institutional standards — the foundation on which every deployment is built.
+            <p className="mt-5 text-white/70 leading-relaxed text-base md:text-lg">
+              Our organisation combines seasoned law enforcement governance at the board level with proactive executive leadership to deliver reliable, regulated private security operations across Nigeria.
             </p>
           </SectionReveal>
+        </div>
+
+        <div className="container-x pb-20 md:pb-28 space-y-16 lg:space-y-24">
+          {/* Chairman Section */}
+          <div id="chairman" className="pt-8 border-t border-white/10 grid lg:grid-cols-[1fr_1.35fr] gap-12 items-center scroll-mt-36">
+            <SectionReveal>
+              <div className="relative aspect-[3/4] w-full max-w-sm mx-auto lg:mx-0 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[color:var(--color-brand-green-deep)]">
+                <Image
+                  src="/staff/chairman-placeholder.jpg"
+                  alt={siteMeta.chairman}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-cover object-center"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-ink)]/75 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                  <span className="inline-block px-3 py-1 rounded-full bg-[color:var(--color-brand-green-deep)]/90 backdrop-blur text-[11px] uppercase tracking-[0.18em] font-semibold text-[color:var(--color-brand-lime)] border border-[color:var(--color-brand-lime)]/30">
+                    Board Chairman
+                  </span>
+                  <span className="text-[10px] uppercase tracking-wider text-white/60 bg-black/50 px-2.5 py-1 rounded-full border border-white/10">
+                    Governance
+                  </span>
+                </div>
+              </div>
+            </SectionReveal>
+            <SectionReveal delay={0.1}>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] uppercase tracking-[0.2em] text-[color:var(--color-brand-lime)] font-semibold">
+                <span>Board of Directors</span>
+              </div>
+              <h3 className="mt-4 font-[family-name:var(--font-display)] uppercase text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.08]">
+                {siteMeta.chairman}
+              </h3>
+              <p className="mt-3 text-[color:var(--color-brand-lime)] text-sm uppercase tracking-[0.18em] font-semibold">
+                {siteMeta.chairmanRole} · {siteMeta.chairmanTitle}
+              </p>
+              
+              <div className="mt-6 space-y-4 text-white/80 leading-relaxed text-sm md:text-base">
+                <p>
+                  AIG Aderenle Shinaba (rtd) brings over three decades of distinguished leadership at the highest echelons of Nigerian law enforcement. His decorated career in the Nigeria Police Force culminated in his appointment as Assistant Inspector General of Police (AIG).
+                </p>
+                <p>
+                  Throughout his tenure, AIG Shinaba commanded strategic, high-stakes state divisions—serving as the Commissioner of Police for Lagos State, the Federal Capital Territory (FCT, Abuja), and Kano State. Across these pivotal commands, he spearheaded major crime-prevention architectures, sensitive VIP protection protocols, and inter-agency security operations.
+                </p>
+                <p>
+                  A fellow of the National Defence College (fdc) and alumnus of the prestigious National Institute for Policy and Strategic Studies (mni), his chairmanship anchors Impress Security Services in statutory compliance, institutional discipline, and rigorous security governance.
+                </p>
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-2 text-[11px] uppercase tracking-wider">
+                <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-white/70">Former CP Lagos State</span>
+                <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-white/70">Former CP FCT Abuja</span>
+                <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-white/70">Fellow NDC (fdc)</span>
+                <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-white/70">Member NIPSS (mni)</span>
+              </div>
+            </SectionReveal>
+          </div>
+
+          {/* CEO / MD Section */}
+          <div id="ceo" className="pt-12 border-t border-white/10 grid lg:grid-cols-[1fr_1.35fr] gap-12 items-center scroll-mt-36">
+            <SectionReveal>
+              <div className="relative aspect-[3/4] w-full max-w-sm mx-auto lg:mx-0 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[color:var(--color-brand-green-deep)]">
+                <Image
+                  src="/staff/ceo.jpeg"
+                  alt={`${siteMeta.ceo} - ${siteMeta.ceoRole}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-cover object-top"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-ink)]/75 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                  <span className="inline-block px-3 py-1 rounded-full bg-[color:var(--color-brand-lime)] backdrop-blur text-[11px] uppercase tracking-[0.18em] font-semibold text-[color:var(--color-brand-green-deep)] border border-[color:var(--color-brand-lime)]">
+                    CEO / Managing Director
+                  </span>
+                  <span className="text-[10px] uppercase tracking-wider text-white/70 bg-black/50 px-2.5 py-1 rounded-full border border-white/10">
+                    Operations
+                  </span>
+                </div>
+              </div>
+            </SectionReveal>
+            <SectionReveal delay={0.1}>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] uppercase tracking-[0.2em] text-[color:var(--color-brand-lime)] font-semibold">
+                <span>Executive Management</span>
+              </div>
+              <h3 className="mt-4 font-[family-name:var(--font-display)] uppercase text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.08]">
+                {siteMeta.ceo}
+              </h3>
+              <p className="mt-3 text-[color:var(--color-brand-lime)] text-sm uppercase tracking-[0.18em] font-semibold">
+                {siteMeta.ceoTitle}
+              </p>
+              
+              <div className="mt-6 space-y-4 text-white/80 leading-relaxed text-sm md:text-base">
+                <p>
+                  Mr. Charles Fasuba serves as the Chief Executive Officer and Managing Director of Impress Security Services Nigeria Limited, directing the company&apos;s corporate strategy, day-to-day operations, and nationwide growth.
+                </p>
+                <p>
+                  With deep practical acumen spanning physical guard deployments, tactical operations, electronic surveillance integration, and threat vulnerability assessments, Mr. Fasuba oversees client service excellence, supervisor accountability, and guard training standards across all sectors.
+                </p>
+                <p>
+                  Under his executive leadership, Impress Security fulfills its core commitment: &quot;We Impress You With Our Services&quot;—delivering quiet vigilance, prompt incident escalation, and dependable 24/7 security protection for corporate headquarters, industrial facilities, and high-net-worth clients throughout Nigeria.
+                </p>
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-2 text-[11px] uppercase tracking-wider">
+                <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-white/70">Strategic Leadership</span>
+                <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-white/70">Guard Force Oversight</span>
+                <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-white/70">Client Operations</span>
+                <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-white/70">Quality Assurance</span>
+              </div>
+            </SectionReveal>
+          </div>
         </div>
       </section>
 

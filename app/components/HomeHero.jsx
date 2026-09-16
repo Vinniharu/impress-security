@@ -128,6 +128,8 @@ export default function HomeHero() {
             <span>NSCDC/PG/024/0001468</span>
             <span className="h-1 w-1 rounded-full bg-white/40" />
             <span>Chairman: AIG (rtd) Aderenle Shinaba</span>
+            <span className="h-1 w-1 rounded-full bg-white/40" />
+            <span>CEO/MD: Mr. Charles Fasuba</span>
           </motion.div>
         </div>
 
