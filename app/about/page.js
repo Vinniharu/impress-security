@@ -32,8 +32,8 @@ export const metadata = {
     images: [
       {
         url: "/staff/ceo.jpeg",
-        width: 750,
-        height: 1000,
+        width: 544,
+        height: 550,
         alt: "Mr. Charles Fasuba - CEO/MD, Impress Security Services",
       },
     ],
