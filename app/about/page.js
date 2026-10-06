@@ -66,7 +66,7 @@ const aboutJsonLd = {
         name: siteMeta.legalName,
       },
       description: "Retired Assistant Inspector General of Police (AIG). Chairman of the Board of Impress Security Services Nigeria Limited.",
-      image: "https://impresssecurities.ng/staff/chairman-placeholder.jpg",
+      image: "https://impresssecurities.ng/staff/boardchairman.jpeg",
     },
     {
       "@type": "Person",
@@ -245,11 +245,11 @@ export default function AboutPage() {
             <SectionReveal>
               <div className="relative aspect-[3/4] w-full max-w-sm mx-auto lg:mx-0 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[color:var(--color-brand-green-deep)]">
                 <Image
-                  src="/staff/chairman-placeholder.jpg"
+                  src="/staff/boardchairman.jpeg"
                   alt={siteMeta.chairman}
                   fill
                   sizes="(max-width: 768px) 100vw, 400px"
-                  className="object-cover object-center"
+                  className="object-cover object-top"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-ink)]/75 via-transparent to-transparent pointer-events-none" />
