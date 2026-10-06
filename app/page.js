@@ -6,7 +6,10 @@ import ServiceCard from "./components/ServiceCard";
 import TrustStrip from "./components/TrustStrip";
 import CTABand from "./components/CTABand";
 import SectionReveal, { RevealItem } from "./components/SectionReveal";
+import AreasServed from "./components/AreasServed";
+import FAQ from "./components/FAQ";
 import { services } from "./lib/services";
+import { homeFaqs } from "./lib/faqs";
 
 const pillars = [
   {
@@ -153,6 +156,8 @@ export default function Home() {
         </div>
       </section>
 
+      <AreasServed />
+
       {/* Pull quote with background staff atmosphere */}
       <section className="relative bg-brand-gradient text-white overflow-hidden">
         <div className="absolute inset-0 pointer-events-none opacity-20">
@@ -180,6 +185,8 @@ export default function Home() {
           </SectionReveal>
         </div>
       </section>
+
+      <FAQ faqs={homeFaqs} />
 
       <CTABand />
     </>

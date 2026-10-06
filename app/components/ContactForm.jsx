@@ -21,7 +21,7 @@ export default function ContactForm() {
       `Confidential enquiry — ${service || "General"}`
     );
     const body = encodeURIComponent(
-      `Name: ${name}\nOrganisation: ${org}\nService of interest: ${service}\nPreferred contact method: ${method}\n\nBrief description:\n${message}\n\n— Sent from impresssecurities.ng enquiry form`
+      `Name: ${name}\nOrganisation: ${org}\nService of interest: ${service}\nPreferred contact method: ${method}\n\nBrief description:\n${message}\n\n— Sent from ${siteMeta.domain} enquiry form`
     );
     window.location.href = `mailto:${siteMeta.email}?subject=${subject}&body=${body}`;
     setSubmitted(true);

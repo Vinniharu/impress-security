@@ -1,18 +1,26 @@
 import PageHero from "../../components/PageHero";
 import SectionReveal from "../../components/SectionReveal";
 import { siteMeta } from "../../lib/siteMeta";
+import { breadcrumbJsonLd, JsonLd } from "../../lib/seo";
 
 export const metadata = {
   title: "Privacy Policy",
   description: "How Impress Security Services Nigeria Limited collects, uses, protects, and retains client and visitor enquiry data.",
   alternates: {
-    canonical: "https://impresssecurities.ng/legal/privacy",
+    canonical: "/legal/privacy",
+  },
+  openGraph: {
+    title: "Privacy Policy | Impress Security Services",
+    url: "/legal/privacy",
+    type: "website",
+    images: ["/opengraph-image"],
   },
 };
 
 export default function PrivacyPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Privacy Policy", path: "/legal/privacy" }])} />
       <PageHero
         breadcrumb="Privacy"
         eyebrow="Legal"

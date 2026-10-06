@@ -3,13 +3,14 @@ import PageHero from "../components/PageHero";
 import SectionReveal, { RevealItem } from "../components/SectionReveal";
 import CTABand from "../components/CTABand";
 import { siteMeta } from "../lib/siteMeta";
+import { breadcrumbJsonLd, JsonLd } from "../lib/seo";
 
 export const metadata = {
-  title: "Security Guard Careers & Recruitment in Lagos",
+  title: "Security Guard Jobs & Careers in Lagos",
   description:
-    "Join Impress Security Services Nigeria Limited. We recruit and train disciplined, vetted security operatives, patrol supervisors, and control room dispatchers in Lagos and nationwide.",
+    "Security guard jobs in Lagos. Impress Security recruits and trains disciplined security operatives, patrol supervisors and control room dispatchers.",
   alternates: {
-    canonical: "https://impresssecurities.ng/careers",
+    canonical: "/careers",
   },
   keywords: [
     "security guard jobs Lagos",
@@ -24,11 +25,11 @@ export const metadata = {
     title: "Security Careers & Officer Recruitment | Impress Security",
     description:
       "Build a disciplined, respected career in corporate, industrial, and residential protection across Lagos and Nigeria.",
-    url: "https://impresssecurities.ng/careers",
+    url: "/careers",
     type: "website",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Careers at Impress Security Services Nigeria",
@@ -39,7 +40,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Security Careers & Recruitment | Impress Security",
     description: "Join Nigeria's leading private security firm. Disciplined, vetted personnel.",
-    images: ["/og-image.jpg"],
+    images: ["/twitter-image"],
   },
 };
 
@@ -53,6 +54,7 @@ const values = [
 export default function CareersPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Careers", path: "/careers" }])} />
       <PageHero
         breadcrumb="Careers"
         eyebrow="Careers"

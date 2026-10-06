@@ -1,18 +1,26 @@
 import PageHero from "../../components/PageHero";
 import SectionReveal from "../../components/SectionReveal";
 import { siteMeta } from "../../lib/siteMeta";
+import { breadcrumbJsonLd, JsonLd } from "../../lib/seo";
 
 export const metadata = {
   title: "Client Confidentiality Statement",
   description: "Our binding commitment to client discretion, data privacy, and non-disclosure across all security operations and enquiries.",
   alternates: {
-    canonical: "https://impresssecurities.ng/legal/confidentiality",
+    canonical: "/legal/confidentiality",
+  },
+  openGraph: {
+    title: "Client Confidentiality Statement | Impress Security Services",
+    url: "/legal/confidentiality",
+    type: "website",
+    images: ["/opengraph-image"],
   },
 };
 
 export default function ConfidentialityPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Confidentiality", path: "/legal/confidentiality" }])} />
       <PageHero
         breadcrumb="Confidentiality"
         eyebrow="Legal"

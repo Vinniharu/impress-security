@@ -2,11 +2,12 @@ import Image from "next/image";
 import PageHero from "../components/PageHero";
 import SectionReveal, { RevealItem } from "../components/SectionReveal";
 import CTABand from "../components/CTABand";
+import { breadcrumbJsonLd, JsonLd } from "../lib/seo";
 
 export const metadata = {
-  title: "Why Choose Us | Ethics, Confidentiality & Professional Distinction",
+  title: "Why Choose Impress Security",
   description:
-    "Discover what sets Impress Security Services apart: disciplined personnel, intelligence-driven operations, calm non-intrusive presence, and uncompromising confidentiality in Nigeria.",
+    "Why choose Impress Security: disciplined personnel, intelligence-driven operations, a calm non-intrusive presence and strict confidentiality in Nigeria.",
   keywords: [
     "Why choose Impress Security",
     "Professional security standards Nigeria",
@@ -15,17 +16,17 @@ export const metadata = {
     "Reliable private guard firm Lagos",
   ],
   alternates: {
-    canonical: "https://impresssecurities.ng/why-impress",
+    canonical: "/why-impress",
   },
   openGraph: {
     title: "Why Impress Security | Our Distinction, Ethics & Commitment",
     description:
       "We compete on professionalism, ethics, and outcome — not on uniform visibility or aggressive posture. Calm, intelligent, non-intrusive security.",
-    url: "https://impresssecurities.ng/why-impress",
+    url: "/why-impress",
     type: "website",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Why Choose Impress Security Services",
@@ -36,7 +37,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Why Impress Security Services",
     description: "The discreet, intelligence-driven security alternative in Nigeria.",
-    images: ["/og-image.jpg"],
+    images: ["/twitter-image"],
   },
 };
 
@@ -66,6 +67,7 @@ const commitment = [
 export default function WhyImpressPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Why Impress", path: "/why-impress" }])} />
       <PageHero
         breadcrumb="Why Impress"
         eyebrow="Why Impress"

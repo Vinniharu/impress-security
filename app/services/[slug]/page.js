@@ -5,6 +5,8 @@ import PageHero from "../../components/PageHero";
 import CTABand from "../../components/CTABand";
 import SectionReveal, { RevealItem } from "../../components/SectionReveal";
 import { services, getService } from "../../lib/services";
+import { siteMeta } from "../../lib/siteMeta";
+import { breadcrumbJsonLd, organizationId, JsonLd } from "../../lib/seo";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -15,11 +17,11 @@ export async function generateMetadata({ params }) {
   const s = getService(slug);
   if (!s) return {};
 
-  const pageUrl = `https://impresssecurities.ng/services/${slug}`;
+  const pageUrl = `${siteMeta.siteUrl}/services/${slug}`;
 
   return {
-    title: `${s.title} | Impress Security Services Nigeria Limited`,
-    description: `${s.summary} ${s.lead}`,
+    title: `${s.title} in Lagos, Nigeria`,
+    description: `${s.summary} Licensed in Lagos, Nigeria.`,
     keywords: [
       s.title,
       `${s.title} Lagos`,
@@ -38,7 +40,7 @@ export async function generateMetadata({ params }) {
       type: "article",
       images: [
         {
-          url: s.image || "/og-image.jpg",
+          url: s.image || "/opengraph-image",
           width: 1200,
           height: 630,
           alt: `${s.title} - Impress Security Services`,
@@ -49,7 +51,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: `${s.title} | Impress Security Services`,
       description: s.summary,
-      images: [s.image || "/og-image.jpg"],
+      images: [s.image || "/twitter-image"],
     },
   };
 }
@@ -67,22 +69,18 @@ export default async function ServiceDetail({ params }) {
     serviceType: service.title,
     name: `${service.title} - Impress Security Services`,
     description: `${service.summary} ${service.lead}`,
-    provider: {
-      "@type": "SecurityService",
-      name: "Impress Security Services Nigeria Limited",
-      url: "https://impresssecurities.ng",
-      telephone: "0803 920 9495",
-    },
-    areaServed: {
-      "@type": "Country",
-      name: "Nigeria",
-    },
-    url: `https://impresssecurities.ng/services/${slug}`,
-    image: service.image ? `https://impresssecurities.ng${service.image}` : "https://impresssecurities.ng/og-image.jpg",
+    provider: { "@id": organizationId },
+    areaServed: [
+      { "@type": "AdministrativeArea", name: "Lagos State" },
+      { "@type": "Country", name: "Nigeria" },
+    ],
+    url: `${siteMeta.siteUrl}/services/${slug}`,
+    image: service.image ? `${siteMeta.siteUrl}${service.image}` : `${siteMeta.siteUrl}/opengraph-image`,
   };
 
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Services", path: "/services" }, { name: service.title, path: `/services/${slug}` }])} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}

@@ -2,11 +2,12 @@ import PageHero from "../components/PageHero";
 import SectionReveal from "../components/SectionReveal";
 import ContactForm from "../components/ContactForm";
 import { siteMeta } from "../lib/siteMeta";
+import { breadcrumbJsonLd, JsonLd } from "../lib/seo";
 
 export const metadata = {
-  title: "Contact Us & Confidential Consultation | Impress Security Services",
+  title: "Contact Us | Hire Security Guards in Lagos",
   description:
-    "Contact Impress Security Services Nigeria Limited in confidence. Head office in Ojodu Berger, Lagos. Direct phone lines, email, and confidential deployment inquiries.",
+    "Hire security guards in Lagos. Contact Impress Security Services in confidence: head office in Ojodu Berger, Lagos, with direct phone lines and email.",
   keywords: [
     "Contact Impress Security",
     "Security company Lagos contact",
@@ -16,17 +17,17 @@ export const metadata = {
     "Impress Security phone number",
   ],
   alternates: {
-    canonical: "https://impresssecurities.ng/contact",
+    canonical: "/contact",
   },
   openGraph: {
-    title: "Contact Us & Confidential Consultation | Impress Security Services",
+    title: "Contact Us | Hire Security Guards in Lagos",
     description:
       "Start a confidential security conversation. Head office in Ojodu Berger, Lagos. Every enquiry is handled under strict non-disclosure.",
-    url: "https://impresssecurities.ng/contact",
+    url: "/contact",
     type: "website",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Contact Impress Security Services Nigeria Limited",
@@ -37,15 +38,15 @@ export const metadata = {
     card: "summary_large_image",
     title: "Contact Impress Security Services",
     description: "Request a confidential security assessment or manned guarding deployment in Lagos, Nigeria.",
-    images: ["/og-image.jpg"],
+    images: ["/twitter-image"],
   },
 };
 
 const contactJsonLd = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  "@id": "https://impresssecurities.ng/contact/#webpage",
-  url: "https://impresssecurities.ng/contact",
+  "@id": `${siteMeta.siteUrl}/contact/#webpage`,
+  url: `${siteMeta.siteUrl}/contact`,
   name: "Contact Impress Security Services Nigeria Limited",
   description: "Confidential security consultations, office directions, and direct telephone lines in Lagos, Nigeria.",
   mainEntity: {
@@ -66,6 +67,7 @@ const contactJsonLd = {
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Contact", path: "/contact" }])} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}

@@ -2,13 +2,14 @@ import Image from "next/image";
 import PageHero from "../components/PageHero";
 import SectionReveal, { RevealItem } from "../components/SectionReveal";
 import CTABand from "../components/CTABand";
+import { breadcrumbJsonLd, JsonLd } from "../lib/seo";
 
 export const metadata = {
-  title: "Security Training & Tactical Drills",
+  title: "Security Guard Training in Nigeria",
   description:
-    "Rigorous security guard training in Nigeria. Daily parades, physical conditioning, emergency response, and tactical drills that prepare Impress Security personnel for high-stakes deployment.",
+    "Security guard training in Nigeria: daily parades, physical conditioning, emergency response and tactical drills that prepare Impress Security personnel.",
   alternates: {
-    canonical: "https://impresssecurities.ng/training",
+    canonical: "/training",
   },
   keywords: [
     "security guard training Nigeria",
@@ -22,11 +23,11 @@ export const metadata = {
     title: "Security Training Academy | Impress Security Services",
     description:
       "Physical and tactical conditioning, structured drills, and situational awareness training for corporate and industrial security guards in Nigeria.",
-    url: "https://impresssecurities.ng/training",
+    url: "/training",
     type: "website",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Impress Security Guard Training Drills",
@@ -37,7 +38,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Security Training & Tactical Drills | Impress Security",
     description: "Daily parades and tactical drills conditioning elite security guards in Nigeria.",
-    images: ["/og-image.jpg"],
+    images: ["/twitter-image"],
   },
 };
 
@@ -51,6 +52,7 @@ const pillars = [
 export default function TrainingPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Training", path: "/training" }])} />
       <PageHero
         breadcrumb="Training"
         eyebrow="Training"

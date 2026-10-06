@@ -1,78 +1,31 @@
 import { services } from "./lib/services";
+import { absoluteUrl } from "./lib/seo";
+
+// Bump a page's date when its content meaningfully changes — Google trusts
+// lastmod only when it reflects real edits, not every build.
+const CONTENT_UPDATED = "2026-10-06";
+
+// Only photos without GPS/address stamps belong here; pic1–pic5 carry
+// client-site location overlays and stay out of Google Images until cropped.
+const pages = [
+  { path: "/", images: ["/logo.png"] },
+  { path: "/about", images: ["/staff/boardchairman.jpeg", "/staff/ceo.jpeg"] },
+  { path: "/services" },
+  { path: "/why-impress" },
+  { path: "/training" },
+  { path: "/contact" },
+  { path: "/careers", images: ["/staff/pic6.jpeg"] },
+  { path: "/legal/confidentiality" },
+  { path: "/legal/privacy" },
+  { path: "/legal/terms" },
+];
 
 export default function sitemap() {
-  const baseUrl = "https://impresssecurities.ng";
-  const lastModified = new Date();
+  const servicePages = services.map((service) => ({ path: `/services/${service.slug}` }));
 
-  const routes = [
-    {
-      url: `${baseUrl}`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/why-impress`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/training`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/careers`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/legal/confidentiality`,
-      lastModified,
-      changeFrequency: "yearly",
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/legal/privacy`,
-      lastModified,
-      changeFrequency: "yearly",
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/legal/terms`,
-      lastModified,
-      changeFrequency: "yearly",
-      priority: 0.5,
-    },
-  ];
-
-  const serviceRoutes = services.map((service) => ({
-    url: `${baseUrl}/services/${service.slug}`,
-    lastModified,
-    changeFrequency: "weekly",
-    priority: 0.9,
+  return [...pages, ...servicePages].map(({ path, images, lastModified }) => ({
+    url: absoluteUrl(path),
+    lastModified: lastModified || CONTENT_UPDATED,
+    ...(images && { images: images.map(absoluteUrl) }),
   }));
-
-  return [...routes, ...serviceRoutes];
 }

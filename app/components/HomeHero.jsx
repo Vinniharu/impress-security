@@ -74,7 +74,7 @@ export default function HomeHero() {
             className="inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.25em] text-[color:var(--color-brand-lime)] font-semibold"
           >
             <span className="inline-block h-2 w-2 rounded-full bg-[color:var(--color-brand-lime)] animate-pulseDot" />
-            Category B Licensed · NSCDC Approved
+            Licensed Private Security Company in Lagos, Nigeria
           </motion.p>
 
           <motion.h1
@@ -123,6 +123,8 @@ export default function HomeHero() {
             transition={{ duration: 0.6, delay: 0.55 }}
             className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.2em] text-white/70"
           >
+            <span>Category B · NSCDC Approved</span>
+            <span className="h-1 w-1 rounded-full bg-white/40" />
             <span>RC1821921</span>
             <span className="h-1 w-1 rounded-full bg-white/40" />
             <span>NSCDC/PG/024/0001468</span>

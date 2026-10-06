@@ -2,12 +2,15 @@ import PageHero from "../components/PageHero";
 import ServiceCard from "../components/ServiceCard";
 import CTABand from "../components/CTABand";
 import SectionReveal from "../components/SectionReveal";
+import FAQ from "../components/FAQ";
 import { services } from "../lib/services";
+import { servicesFaqs } from "../lib/faqs";
+import { breadcrumbJsonLd, JsonLd } from "../lib/seo";
 
 export const metadata = {
-  title: "Security Services | Manned Guarding, VIP Protection, Investigations & Consultancy",
+  title: "Security Services in Lagos & Nigeria",
   description:
-    "Explore our 6 core security disciplines: Manned Guarding, Executive & VIP Protection, Event Security, Background Checks & Vetting, Private Investigation, and Risk Consultancy across Nigeria.",
+    "Security services in Lagos and Nigeria: manned guarding, VIP protection, event security, background checks, private investigation and risk consultancy.",
   keywords: [
     "Security services Nigeria",
     "Manned guarding services Lagos",
@@ -18,17 +21,17 @@ export const metadata = {
     "Event security crowd control Lagos",
   ],
   alternates: {
-    canonical: "https://impresssecurities.ng/services",
+    canonical: "/services",
   },
   openGraph: {
     title: "Security Services | Impress Security Services Nigeria Limited",
     description:
       "Integrated, intelligence-driven private security services for corporate organisations and individuals across Nigeria.",
-    url: "https://impresssecurities.ng/services",
+    url: "/services",
     type: "website",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Impress Security Services - Core Capabilities",
@@ -39,13 +42,14 @@ export const metadata = {
     card: "summary_large_image",
     title: "Security Services | Impress Security Services",
     description: "Manned guarding, VIP protection, vetting, private investigations, and risk advisory in Nigeria.",
-    images: ["/og-image.jpg"],
+    images: ["/twitter-image"],
   },
 };
 
 export default function ServicesIndex() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Services", path: "/services" }])} />
       <PageHero
         breadcrumb="Services"
         eyebrow="Our Services"
@@ -61,6 +65,7 @@ export default function ServicesIndex() {
           </SectionReveal>
         </div>
       </section>
+      <FAQ faqs={servicesFaqs} title="Choosing the right security service." />
       <CTABand
         title="Not sure which service fits?"
         body="Tell us what you need to protect. We will assess, recommend, and quote — discreetly."

@@ -3,11 +3,12 @@ import PageHero from "../components/PageHero";
 import SectionReveal, { RevealItem } from "../components/SectionReveal";
 import CTABand from "../components/CTABand";
 import { siteMeta } from "../lib/siteMeta";
+import { breadcrumbJsonLd, JsonLd } from "../lib/seo";
 
 export const metadata = {
-  title: "About Us & Executive Leadership | Impress Security Services Nigeria Limited",
+  title: "About Us & Executive Leadership",
   description:
-    "Learn about Impress Security Services Limited, our operational philosophy, our Board Chairman AIG Aderenle Shinaba (rtd), fdc, mni, and our CEO/MD Mr. Charles Fasuba. Category B licensed in Lagos, Nigeria.",
+    "Meet Impress Security Services, a licensed Lagos security company led by Board Chairman AIG Aderenle Shinaba (rtd) and CEO/MD Mr. Charles Fasuba.",
   keywords: [
     "About Impress Security",
     "AIG Aderenle Shinaba",
@@ -21,13 +22,13 @@ export const metadata = {
     "Security services management Nigeria",
   ],
   alternates: {
-    canonical: "https://impresssecurities.ng/about",
+    canonical: "/about",
   },
   openGraph: {
-    title: "About Us & Executive Leadership | Impress Security Services Nigeria Limited",
+    title: "About Us & Executive Leadership",
     description:
       "Corporate governance chaired by retired Assistant Inspector General of Police AIG Aderenle Shinaba (rtd) and executive direction by CEO/MD Mr. Charles Fasuba.",
-    url: "https://impresssecurities.ng/about",
+    url: "/about",
     type: "website",
     images: [
       {
@@ -51,14 +52,14 @@ const aboutJsonLd = {
   "@graph": [
     {
       "@type": "AboutPage",
-      "@id": "https://impresssecurities.ng/about/#webpage",
-      url: "https://impresssecurities.ng/about",
+      "@id": `${siteMeta.siteUrl}/about/#webpage`,
+      url: `${siteMeta.siteUrl}/about`,
       name: "About Impress Security Services Nigeria Limited",
       description: "Corporate brief, history, and executive leadership of Impress Security Services Limited.",
     },
     {
       "@type": "Person",
-      "@id": "https://impresssecurities.ng/about/#chairman",
+      "@id": `${siteMeta.siteUrl}/about/#chairman`,
       name: siteMeta.chairman,
       jobTitle: "Board Chairman",
       worksFor: {
@@ -66,11 +67,11 @@ const aboutJsonLd = {
         name: siteMeta.legalName,
       },
       description: "Retired Assistant Inspector General of Police (AIG). Chairman of the Board of Impress Security Services Nigeria Limited.",
-      image: "https://impresssecurities.ng/staff/boardchairman.jpeg",
+      image: `${siteMeta.siteUrl}/staff/boardchairman.jpeg`,
     },
     {
       "@type": "Person",
-      "@id": "https://impresssecurities.ng/about/#ceo",
+      "@id": `${siteMeta.siteUrl}/about/#ceo`,
       name: siteMeta.ceo,
       jobTitle: siteMeta.ceoTitle,
       worksFor: {
@@ -78,7 +79,7 @@ const aboutJsonLd = {
         name: siteMeta.legalName,
       },
       description: "Chief Executive Officer / Managing Director of Impress Security Services Nigeria Limited.",
-      image: "https://impresssecurities.ng/staff/ceo.jpeg",
+      image: `${siteMeta.siteUrl}/staff/ceo.jpeg`,
     },
   ],
 };
@@ -93,6 +94,7 @@ const focusAreas = [
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "About", path: "/about" }])} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }}

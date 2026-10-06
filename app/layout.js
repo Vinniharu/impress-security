@@ -3,6 +3,8 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { siteMeta } from "./lib/siteMeta";
+import { services } from "./lib/services";
+import { organizationId, websiteId, lagosAreas, JsonLd } from "./lib/seo";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -19,14 +21,14 @@ const inter = Inter({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://impresssecurities.ng"),
+  metadataBase: new URL(siteMeta.siteUrl),
   title: {
-    default:
-      "Impress Security Services Nigeria Limited | Licensed Private Guard Company in Lagos",
-    template: "%s | Impress Security Services Nigeria Limited",
+    default: "Impress Security Services | Security Company in Lagos, Nigeria",
+    template: "%s | Impress Security Services",
   },
   description:
-    "Category B licensed security company in Lagos providing manned guarding, VIP protection, investigations, and security consultancy. Professional, discreet, intelligence-driven.",
+    "Licensed private security company in Lagos, Nigeria: manned guarding, VIP protection, event security, investigations, vetting and risk consultancy, 24/7.",
+  applicationName: siteMeta.shortName,
   keywords: [
     "Impress Security",
     "Impress Security Services",
@@ -49,8 +51,13 @@ export const metadata = {
     "Security consultancy Lagos",
     "Risk assessment Nigeria",
     "Security company Ojodu Berger Lagos",
+    "Security companies in Nigeria",
+    "Best security company in Lagos",
+    "Private security company Nigeria",
+    "Security guard company Lagos",
+    "Security services in Lagos",
   ],
-  authors: [{ name: "Impress Security Services Nigeria Limited", url: "https://impresssecurities.ng" }],
+  authors: [{ name: "Impress Security Services Nigeria Limited", url: siteMeta.siteUrl }],
   creator: "Impress Security Services Nigeria Limited",
   publisher: "Impress Security Services Nigeria Limited",
   category: "Security & Investigations",
@@ -83,50 +90,47 @@ export const metadata = {
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && {
+    verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION },
+  }),
   openGraph: {
-    title: "Impress Security Services Nigeria Limited | Licensed Private Guard Company in Lagos",
+    title: "Impress Security Services | Security Company in Lagos, Nigeria",
     description:
       "Professional, discreet, intelligence-driven security services for corporate organisations and individuals across Nigeria. Category B licensed under the Private Guard Companies Act.",
     type: "website",
-    url: "https://impresssecurities.ng",
-    siteName: "Impress Security Services Nigeria Limited",
+    url: "/",
+    siteName: siteMeta.shortName,
     locale: "en_NG",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Impress Security Services Nigeria Limited - Professional, Discreet, Intelligence-Driven",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Impress Security Services Nigeria Limited",
+    title: "Impress Security Services | Security Company in Lagos, Nigeria",
     description:
       "Category B licensed security company in Lagos providing manned guarding, VIP protection, investigations, and security consultancy.",
-    images: ["/og-image.jpg"],
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
+const organizationJsonLd = {
   "@type": ["SecurityService", "LocalBusiness", "Organization"],
-  "@id": "https://impresssecurities.ng/#organization",
+  "@id": organizationId,
   name: siteMeta.legalName,
   alternateName: [
     siteMeta.shortName,
     "Impress Security",
     "Impress Security Services",
     "Impress Security Lagos",
+    "Impress Securities Services",
   ],
-  url: "https://impresssecurities.ng",
+  url: siteMeta.siteUrl,
+  // Add Google Business Profile, LinkedIn, Facebook, etc. URLs here once they exist.
+  sameAs: [],
+  foundingDate: "2021-07-27",
   logo: {
     "@type": "ImageObject",
-    url: "https://impresssecurities.ng/logo.png",
+    url: `${siteMeta.siteUrl}/logo.png`,
     caption: "Impress Security Services Nigeria Limited Logo",
   },
-  image: "https://impresssecurities.ng/og-image.jpg",
+  image: `${siteMeta.siteUrl}/opengraph-image`,
   description:
     "Category B licensed private guard and security company in Lagos, Nigeria. Specialised in manned guarding, executive & VIP protection, private investigations, vetting, and security consultancy.",
   slogan: siteMeta.promise,
@@ -168,6 +172,7 @@ const jsonLd = {
       "@type": "AdministrativeArea",
       name: "Lagos State",
     },
+    ...lagosAreas.map((name) => ({ "@type": "Place", name: `${name}, Lagos` })),
     {
       "@type": "Country",
       name: "Nigeria",
@@ -193,62 +198,15 @@ const jsonLd = {
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Security Services",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Manned Guarding",
-          description: "Disciplined, vetted personnel deployed across corporate, residential, and industrial sites.",
-          url: "https://impresssecurities.ng/services/manned-guarding",
-        },
+    itemListElement: services.map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.title,
+        description: service.summary,
+        url: `${siteMeta.siteUrl}/services/${service.slug}`,
       },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Executive & VIP Protection",
-          description: "Discreet close-protection for executives, high-net-worth individuals, and visiting dignitaries.",
-          url: "https://impresssecurities.ng/services/executive-vip-protection",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Event & Crowd Security",
-          description: "Comprehensive security planning, crowd control, and emergency response for high-profile gatherings.",
-          url: "https://impresssecurities.ng/services/event-crowd-security",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Background Checks & Vetting",
-          description: "Discreet integrity, employment, tenant, and domestic staff vetting.",
-          url: "https://impresssecurities.ng/services/background-checks-vetting",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Private Investigation & Surveillance",
-          description: "Legal, ethical surveillance, asset tracing, fraud, and corporate inquiries.",
-          url: "https://impresssecurities.ng/services/private-investigation-surveillance",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Security Consultancy & Risk Assessment",
-          description: "Practical risk audits, vulnerability identification, and crisis preparedness advisory.",
-          url: "https://impresssecurities.ng/services/security-consultancy-risk-assessment",
-        },
-      },
-    ],
+    })),
   },
   contactPoint: [
     {
@@ -268,18 +226,30 @@ const jsonLd = {
   ],
 };
 
+const websiteJsonLd = {
+  "@type": "WebSite",
+  "@id": websiteId,
+  url: siteMeta.siteUrl,
+  name: siteMeta.shortName,
+  alternateName: ["Impress Security", siteMeta.legalName, "Impress Securities Services"],
+  inLanguage: "en-NG",
+  publisher: { "@id": organizationId },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [websiteJsonLd, organizationJsonLd],
+};
+
 export default function RootLayout({ children }) {
   return (
     <html
-      lang="en"
+      lang="en-NG"
       className={`${oswald.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white text-[color:var(--color-ink)]">
         <a href="#main" className="skip-link">Skip to content</a>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <JsonLd data={jsonLd} />
         <Header />
         <main id="main" className="flex-1">
           {children}

@@ -1,18 +1,26 @@
 import PageHero from "../../components/PageHero";
 import SectionReveal from "../../components/SectionReveal";
 import { siteMeta } from "../../lib/siteMeta";
+import { breadcrumbJsonLd, JsonLd } from "../../lib/seo";
 
 export const metadata = {
   title: "Terms of Service",
   description: "Terms and conditions governing the use of the Impress Security Services Nigeria Limited website.",
   alternates: {
-    canonical: "https://impresssecurities.ng/legal/terms",
+    canonical: "/legal/terms",
+  },
+  openGraph: {
+    title: "Terms of Service | Impress Security Services",
+    url: "/legal/terms",
+    type: "website",
+    images: ["/opengraph-image"],
   },
 };
 
 export default function TermsPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Terms of Service", path: "/legal/terms" }])} />
       <PageHero
         breadcrumb="Terms"
         eyebrow="Legal"
