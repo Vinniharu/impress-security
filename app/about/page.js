@@ -276,10 +276,10 @@ export default function AboutPage() {
               
               <div className="mt-6 space-y-4 text-white/80 leading-relaxed text-sm md:text-base">
                 <p>
-                  AIG Aderenle Shinaba (rtd) brings over three decades of distinguished leadership at the highest echelons of Nigerian law enforcement. His decorated career in the Nigeria Police Force culminated in his appointment as Assistant Inspector General of Police (AIG).
+                  AIG Aderenle Shinaba (rtd) brings over three decades of distinguished leadership at the highest echelons of Nigerian law enforcement. His decorated career in the Nigeria Police Force culminated in his appointment as Assistant Inspector General of Police (AIG), Zone 1, Kano, from where he retired from service.
                 </p>
                 <p>
-                  Throughout his tenure, AIG Shinaba commanded strategic, high-stakes state divisions—serving as the Commissioner of Police for Lagos State, the Federal Capital Territory (FCT, Abuja), and Kano State. Across these pivotal commands, he spearheaded major crime-prevention architectures, sensitive VIP protection protocols, and inter-agency security operations.
+                  Throughout his tenure, AIG Shinaba commanded strategic, high-stakes state divisions—serving as the Commissioner of Police for the Federal Capital Territory (FCT, Abuja) and later for the Kano State Command. Across these pivotal commands, he spearheaded major crime-prevention architectures, sensitive VIP protection protocols, and inter-agency security operations.
                 </p>
                 <p>
                   A fellow of the National Defence College (fdc) and alumnus of the prestigious National Institute for Policy and Strategic Studies (mni), his chairmanship anchors Impress Security Services in statutory compliance, institutional discipline, and rigorous security governance.
@@ -287,8 +287,9 @@ export default function AboutPage() {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-2 text-[11px] uppercase tracking-wider">
-                <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-white/70">Former CP Lagos State</span>
+                <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-white/70">Former AIG Zone 1 Kano</span>
                 <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-white/70">Former CP FCT Abuja</span>
+                <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-white/70">Former CP Kano Command</span>
                 <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-white/70">Fellow NDC (fdc)</span>
                 <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-white/70">Member NIPSS (mni)</span>
               </div>
