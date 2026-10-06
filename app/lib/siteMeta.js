@@ -1,6 +1,8 @@
 export const siteMeta = {
   legalName: "Impress Security Services Nigeria Limited",
   shortName: "Impress Security Services",
+  siteUrl: "https://www.impresssecuritiesservices.com",
+  domain: "impresssecuritiesservices.com",
   tagline: "We Impress You With Our Services",
   promise: "We Secure Quietly. We Protect Effectively.",
   positioning: "Professional · Discreet · Intelligence-Driven",
@@ -19,7 +21,7 @@ export const siteMeta = {
   licensingAuthority: "Hon. Dr. Olubunmi Tunji-Ojo, Minister/Licensing Authority",
   address: {
     line1: "Suite 19, Comfort Oladunni Shopping Complex",
-    line2: "No. 3, Kosoko Road, Ojudu Berger",
+    line2: "No. 3, Kosoko Road, Ojodu Berger",
     city: "Lagos",
     country: "Nigeria",
   },
