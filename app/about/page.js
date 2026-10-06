@@ -32,8 +32,8 @@ export const metadata = {
     images: [
       {
         url: "/staff/ceo.jpeg",
-        width: 544,
-        height: 550,
+        width: 1243,
+        height: 1266,
         alt: "Mr. Charles Fasuba - CEO/MD, Impress Security Services",
       },
     ],
@@ -299,7 +299,7 @@ export default function AboutPage() {
           {/* CEO / MD Section */}
           <div id="ceo" className="pt-12 border-t border-white/10 grid lg:grid-cols-[1fr_1.35fr] gap-12 items-center scroll-mt-36">
             <SectionReveal>
-              <div className="relative aspect-[3/4] w-full max-w-sm mx-auto lg:mx-0 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[color:var(--color-brand-green-deep)]">
+              <div className="relative aspect-[1243/1266] w-full max-w-sm mx-auto lg:mx-0 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[color:var(--color-brand-green-deep)]">
                 <Image
                   src="/staff/ceo.jpeg"
                   alt={`${siteMeta.ceo} - ${siteMeta.ceoRole}`}
